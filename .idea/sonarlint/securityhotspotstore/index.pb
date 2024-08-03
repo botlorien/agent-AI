@@ -1,6 +1,4 @@
 
-7
-main.py,f\1\f1bdda93d9a278e358509d498e17d97764c1fb29
 A
 utils/__init__.py,c\b\cb19cfbf0eac792d9353415a9a0072a9219f871e
 C
@@ -24,3 +22,11 @@ I
 project_setup/settings.py,d\7\d760dadb9b78fda83086b33afe00b7660128e959
 @
 agentAI/views.py,3\b\3bfe471afaace2207a9d3f0046de68674451eeb9
+9
+	manage.py,3\1\3156ad13e4d695cd526bbb7b031016ecba842270
+M
+templates/agentAI/chat22.html,8\0\80681448ab8e9fc6cacb69b6e24197993cddb43d
+J
+agentAI/agent_langchain.py,1\d\1d13b71aab0f8653d0a0540e074c8f28f2785a80
+G
+agentAI/agent_olhama.py,b\2\b2122f4e89388897f422d97023b7deb15fe555d6

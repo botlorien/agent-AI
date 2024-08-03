@@ -15,7 +15,7 @@ class RunningQueue(Exception):
     pass
 
 
-class Assistent:
+class Assistant:
 
     def __init__(self, name_assistent, instructions, tools=None, model='gpt-3.5-turbo-1106', temperature: int = 0,
                  *args, **kwargs):
@@ -108,7 +108,10 @@ class Assistent:
         return self
 
     def use_existent_thread_id(self, thread_id):
-        self.thread_id = thread_id
+        if thread_id is not None and isinstance(thread_id,str) and len(thread_id)>0:
+            self.thread_id = thread_id
+        else:
+            raise ValueError('Invalid thread_id!')
         return self
 
     def run_assistent(self):
@@ -135,13 +138,19 @@ class Assistent:
             thread_id=self.thread_id,
             run_id=self.run.id
         )
+        print(run)
         status = [val for val in (run.completed_at, run.cancelled_at, run.failed_at) if val is not None]
-        if run.required_action:
+        if run.failed_at is not None:
+            return {"error":f"Erro {run.last_error.message}"}
+
+        elif run.cancelled_at is not None:
+            return {"error": f"Erro {run.last_error.message}"}
+        elif run.required_action:
             if isinstance(self.verify_response_tools(run.required_action), Assistent):
                 raise RunningQueue
             return False
-        if len(status) > 0:
-            return True
+        elif run.completed_at is not None:
+            return {"message": str(run)}
         else:
             raise RunningQueue
 
@@ -216,7 +225,11 @@ class Assistent:
         self.responses = self.client.beta.threads.messages.list(
             thread_id=self.thread_id
         )
-        answer = self.responses.data[0].content[0].text.value
+        print(self.responses)
+        if self.responses.data[0].role !='user':
+            answer = self.responses.data[0].content[0].text.value
+        else:
+            answer = f'O {self.model} não está respondendo adequadamente!'
         print(answer)
         return answer
 
@@ -272,8 +285,9 @@ class Assistent:
             thread_id = self.use_existent_thread_id(thread_id).thread_id
         self.add_user_message(query)
         self.run_assistent()
-        self.verify_run()
-
+        resp = self.verify_run()
+        if 'error' in resp:
+            return resp
         return {'message': self.show_responses(), 'thread_id': thread_id}
 
 

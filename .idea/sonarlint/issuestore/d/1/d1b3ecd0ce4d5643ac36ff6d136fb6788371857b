@@ -1,6 +1,7 @@
 
-python:S1192J"]Define a constant instead of duplicating this literal 'config/config_assistent.json' 3 times.(±Â¥ûÿÿÿÿ8­õŠ­2
-Kpython:S1172,",Remove the unused function parameter "args".(ÑßéØ8®õŠ­2
-Rpython:S11727".Remove the unused function parameter "kwargs".(ÄÈñÒùÿÿÿÿ8®õŠ­2
-Qpython:S1172ÿ",Remove the unused function parameter "args".(ë÷ïõûÿÿÿÿ8®õŠ­2
-Spython:S1172ÿ".Remove the unused function parameter "kwargs".(ë÷ïõûÿÿÿÿ8®õŠ­2
+python:S1192U"]Define a constant instead of duplicating this literal 'config/config_assistent.json' 3 times.(±Â¥ûÿÿÿÿ8Ş±Ë‘2
+Kpython:S11727",Remove the unused function parameter "args".(ÑßéØ8Ş±Ë‘2
+Rpython:S1172B".Remove the unused function parameter "kwargs".(ÄÈñÒùÿÿÿÿ8Ş±Ë‘2
+Opython:S1481"*Remove the unused local variable "status".(–½ÿ¶üÿÿÿÿ8Ş±Ë‘2
+Qpython:S1172—",Remove the unused function parameter "args".(ë÷ïõûÿÿÿÿ8Ş±Ë‘2
+Spython:S1172—".Remove the unused function parameter "kwargs".(ë÷ïõûÿÿÿÿ8Ş±Ë‘2
