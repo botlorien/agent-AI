@@ -82,16 +82,16 @@ class Assistant:
 
     def get_assistent_config(self):
         try:
-            if not os.path.exists('config/config_assistent.json'):
+            if not os.path.exists('../../config/config_assistent.json'):
                 self.assistant_id = self.create_assistent().assistant.id
                 assistent_config_file = {
                     'assistant_id': self.assistant_id
                 }
-                os.makedirs('config', exist_ok=True)
-                with open('config/config_assistent.json', 'w', encoding='utf-8') as f:
+                os.makedirs('../../config', exist_ok=True)
+                with open('../../config/config_assistent.json', 'w', encoding='utf-8') as f:
                     f.write(json.dumps(assistent_config_file, ensure_ascii=False, indent=4))
             else:
-                with open('config/config_assistent.json', 'r', encoding='utf-8') as f:
+                with open('../../config/config_assistent.json', 'r', encoding='utf-8') as f:
                     assistent_config_file = json.loads(f.read())
             print(assistent_config_file)
             return assistent_config_file

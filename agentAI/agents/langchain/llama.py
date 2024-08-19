@@ -18,20 +18,22 @@ class Assistant:
         self._tools = tools
         self._model = model
         self.temperature = temperature
+        self.base_url = kwargs.get('base_url', False) or 'http://localhost:11434'
+        print(self.base_url)
         self.llm = ChatOllama(
             model=self._model,
             temperature=self.temperature,
-            base_url='http://localhost:11434'
+            base_url=self.base_url
             # other params...
         )
-        self._messages: List[Tuple] = []
+        self._messages: List[Tuple[str, str]] = []
         self.add_message(('system', self._instructions))
 
     @property
     def messages(self):
         return self._messages
 
-    def add_message(self, message: Tuple):
+    def add_message(self, message: Tuple[str, str]):
         self._messages.append(message)
 
     def chat(self, query):
@@ -40,3 +42,12 @@ class Assistant:
         print(ai_msg.content)
         self.add_message(("ai", ai_msg.content))
         return {"message": ai_msg.content}
+
+
+if __name__ == '__main__':
+    ass = Assistant(
+        name_assistent='test',
+        instructions=' this is test',
+        base_url='http://10.0.20.70:11434'
+    )
+

@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import ChatSerializer
-from .agent_olhama import Assistant
+from agentAI.agents.langchain.llama import Assistant
 import os
 
 instructions = """
@@ -15,7 +15,8 @@ print(OPENAI_API_KEY_PORTFOLIO)
 ass = Assistant(
     'portfolio',
     instructions=instructions,
-    api_key=OPENAI_API_KEY_PORTFOLIO
+    base_url='http://10.0.20.70:11434',
+    #api_key=OPENAI_API_KEY_PORTFOLIO
 )
 
 
