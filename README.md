@@ -1,6 +1,7 @@
 # Agent-AI
 
 Agent-AI é um projeto baseado em Django que integra a inteligência artificial da OpenAI para executar tarefas externas conforme solicitado. Este repositório fornece os recursos e instruções necessárias para configurar e executar a aplicação localmente.
+Obs: Esse projeto ainda está em desenvovimento, não está completamente funcional ainda!
 
 ## Funcionalidades
 
